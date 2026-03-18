@@ -1,0 +1,44 @@
+project_name: ai_detector_text_baseline
+
+seed: 42
+
+data:
+  input_csv: data/raw/text_dataset.csv
+  text_column: text
+  label_column: label
+  min_text_length: 10
+  drop_duplicates: true
+
+split:
+  train_size: 0.70
+  val_size: 0.15
+  test_size: 0.15
+  stratify: true
+
+model:
+  type: logistic_regression
+  params:
+    C: 1.0
+    max_iter: 1000
+    class_weight: balanced
+    solver: liblinear
+
+features:
+  type: tfidf
+  params:
+    lowercase: true
+    strip_accents: unicode
+    ngram_range: [1, 2]
+    min_df: 2
+    max_df: 0.95
+    max_features: 30000
+    sublinear_tf: true
+
+artifacts:
+  model_path: artifacts/models/text_baseline.joblib
+  vectorizer_path: artifacts/vectorizers/tfidf_vectorizer.joblib
+  metrics_path: artifacts/reports/text_metrics.json
+  confusion_matrix_path: artifacts/reports/text_confusion_matrix.png
+  train_split_path: data/splits/train.csv
+  val_split_path: data/splits/val.csv
+  test_split_path: data/splits/test.csv
