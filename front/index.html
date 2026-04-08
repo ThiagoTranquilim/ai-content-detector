@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>AI Detector</h2>
+    <p>Detecte conteúdo gerado por IA</p>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <div class="chat-box" id="chatBox">
+      <div class="message bot">
+        👋 Cole um texto ou envie uma imagem para análise.
+      </div>
+    </div>
+
+    <div class="input-area">
+      <textarea id="textInput" placeholder="Digite seu texto..."></textarea>
+
+      <div class="actions">
+        <input type="file" id="imageInput" hidden>
+        <button class="icon-btn" onclick="document.getElementById('imageInput').click()">📎</button>
+        <button class="send-btn" onclick="sendText()">Analisar</button>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
