@@ -155,3 +155,25 @@ Monitore a proporção das classes. O código usa split estratificado e pode usa
 
 ## Observação
 Este sistema produz uma **probabilidade estimada**, não uma prova definitiva de autoria humana ou por IA.
+
+## Dataset
+
+O dataset original não foi incluído no repositório por conta do tamanho do arquivo.
+
+Para treinar novamente o modelo, adicione o arquivo CSV em:
+
+ml/data/raw/text_dataset.csv
+
+O CSV deve conter as colunas:
+
+- text
+- generated
+
+Onde:
+
+- 0 = texto humano
+- 1 = texto gerado por IA
+
+Depois execute:
+
+python -m src.text.pipelines.training_pipeline --config configs/text_baseline.yaml
